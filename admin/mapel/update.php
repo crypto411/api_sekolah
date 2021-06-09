@@ -14,10 +14,10 @@ if(isset($_GET['kdmapel']) && isset($_GET['namamapel'])) {
         $query = "update mapel set namamapel = '$namamapel' where kdmapel = '$kdmapel'";
         $result = $conn->query($query);
         if($result) {
-            echo '{status: "Success"}';
+            echo '{"status": "Success"}';
         }
         else {
-            echo $conn->error;
+            echo '{"status": "'.$conn->error.'"}';
         }
         $conn->close();
     }

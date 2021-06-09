@@ -14,10 +14,10 @@ if(isset($_GET['kdmapel']) && isset($_GET['namamapel'])) {
         $query = "insert into mapel (kdmapel, namamapel) value ('$kdmapel', '$namamapel')";
         $result = $conn->query($query);
         if($result) {
-            echo '{status: "Success"}';
+            echo '{"status": "Success"}';
         }
         else {
-            echo $conn->error;
+            echo '{"status": "'.$conn->error.'"}';
         }
         $conn->close();
     }

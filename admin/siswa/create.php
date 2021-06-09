@@ -18,10 +18,10 @@ if(isset($_GET['nis']) && isset($_GET['nama']) && isset($_GET['alamat']) && isse
         $query2 = "insert into users (userid, username, userpass, role, nis) value (0, 'u$nis', 'p$nis', null, '$nis')";
         $result2 = $conn->query($query2);
         if($result) {
-            echo '{status: "Success"}';
+            echo '{"status": "Success"}';
         }
         else {
-            echo $conn->error;
+            echo '{"status": "'.$conn->error.'"}';
         }
         $conn->close();
     }
