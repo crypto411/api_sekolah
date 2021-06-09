@@ -15,7 +15,7 @@ if ($rec = $result->fetch_array()) {
     $out .= '{"nis":"' . $rec["nis"] . '",';
     $out .= '"kdmapel":"' . $rec["kdmapel"] . '",';
     $out .= '"nilai":"' . $rec["nilai"] . '"}';
-    $out = (!empty($out)) ? '{"records":' . $out . '}' : '';
+    $out = (!empty($out)) ? $out : '';
     echo ($out);
 }
 else {
@@ -23,7 +23,7 @@ else {
     $out .= '{"nis": "'.$_GET['nis'].'",';
     $out .= '"kdmapel": "' . $_GET['kdmapel'] . '",';
     $out .= '"nilai": "0"}';
-    $out = (!empty($out)) ? '{"records":' . $out . '}' : '';
+    $out = (!empty($out)) ? $out : '';
     echo ($out);
 }
 $conn->close();
