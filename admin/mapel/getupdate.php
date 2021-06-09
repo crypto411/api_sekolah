@@ -14,11 +14,11 @@ if ($rs = $result->fetch_array()) {
     if ($out != "") {$out .= ",";}
     $out .= '{"kdmapel":"' . $rs["kdmapel"] . '",';
     $out .= '"namamapel":"' . $rs["namamapel"] . '"}';
-    $out = (!empty($out)) ? '{"records":' . $out . '}' : '';
+    $out = (!empty($out)) ? $out : '';
     echo ($out);
 }
 else {
-    return false;
+    return $conn->error;
 }
 $conn->close();
 

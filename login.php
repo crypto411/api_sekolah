@@ -25,7 +25,6 @@
                     $out .= '"userpass":"' . $rs["userpass"] . '",';
                     $out .= '"role":"' . $rs["role"] . '",';
                     $out .= '"nis":"' . $rs["nis"] . '"}';
-                    $out = (!empty($out)) ? '{"records":' . $out . '}' : '';
                     echo ($out);
                 }
                 else {

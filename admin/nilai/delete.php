@@ -13,10 +13,10 @@
 
 
     if ($result) {
-        echo TRUE;
+        echo "success";
     }
     else{
-        echo FALSE;
+        echo $conn->error;
     }
     $conn->close();
 ?>

@@ -16,7 +16,7 @@ if(isset($_GET['nis']) && isset($_GET['nama']) && isset($_GET['alamat']) && isse
         $query = "update siswa set nama = '$nama', alamat = '$alamat', jen_kel = '$jen_kel' where nis = '$nis'";
         $result = $conn->query($query);
         if($result) {
-            echo true;
+            echo "success";
         }
         else {
             echo $conn->error;
