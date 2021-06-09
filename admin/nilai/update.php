@@ -16,7 +16,7 @@ if(isset($_GET['nis']) && isset($_GET['kdmapel']) &&  isset($_GET['nilai'])) {
         // echo $query;
         $result = $conn->query($query);
         if($result) {
-            echo "success";
+            echo '{status: "Success"}';
         }
         else {
             echo $conn->error;

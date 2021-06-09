@@ -13,7 +13,7 @@
 
 
     if ($result) {
-        echo "success";
+        echo '{status: "Success"}';
     }
     else{
         echo $conn->error;

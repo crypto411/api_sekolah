@@ -214,7 +214,7 @@ ALTER TABLE `siswa`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userid`),
-  ADD KEY `nis` (`nis`);
+  ADD UNIQUE `usernis` (`username`, `nis`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -224,7 +224,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
