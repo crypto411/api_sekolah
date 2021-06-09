@@ -16,7 +16,7 @@ if ($rs = $result->fetch_array()) {
     $out .= '"nama":"' . $rs["nama"] . '",';
     $out .= '"alamat":"' . $rs["alamat"] . '",';
     $out .= '"jen_kel":"' . $rs["jen_kel"] . '"}';
-    $out = (!empty($out)) ? '{"records":' . $out . '}' : '';
+    $out = (!empty($out)) ? $out : '';
     echo ($out);
 }
 else {
