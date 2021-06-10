@@ -3,7 +3,7 @@
 $host   = "localhost";
 $user   = "root";
 $pass   = "";
-$db     = "api_app";
+$db     = "api_sekolah";
 
 $conn = new mysqli($host, $user, $pass, $db);
 ?>

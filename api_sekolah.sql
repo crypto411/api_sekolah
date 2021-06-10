@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 07, 2021 at 02:39 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 5.6.40
+-- Host: localhost:3306
+-- Generation Time: Jun 10, 2021 at 06:57 AM
+-- Server version: 10.3.16-MariaDB
+-- PHP Version: 7.3.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `api_app`
+-- Database: `id16993927_api_sekolah`
 --
 
 -- --------------------------------------------------------
@@ -56,49 +56,6 @@ INSERT INTO `mapel` (`kdmapel`, `namamapel`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mhs`
---
-
-CREATE TABLE `mhs` (
-  `nim` varchar(10) NOT NULL,
-  `nama` varchar(20) NOT NULL,
-  `alamat` varchar(255) NOT NULL,
-  `jen_kel` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `mhs`
---
-
-INSERT INTO `mhs` (`nim`, `nama`, `alamat`, `jen_kel`) VALUES
-('1811500824', 'Fadhlan Hadaina', 'Kp. Samboja, Ds. Cikoneng, Kec. Anyer, Kab. Serang, Banten 42166.', 'L');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mtk`
---
-
-CREATE TABLE `mtk` (
-  `kdmtk` varchar(5) NOT NULL,
-  `namamtk` varchar(20) NOT NULL,
-  `sks` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `mtk`
---
-
-INSERT INTO `mtk` (`kdmtk`, `namamtk`, `sks`) VALUES
-('B-001', 'Mobile Programming', 3),
-('B-002', 'Java Web Programming', 2),
-('B-003', 'Kalkulus 1', 3),
-('B-004', 'Kalkulus II', 2),
-('B-005', 'Image Processing', 3);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `nilai`
 --
 
@@ -107,26 +64,6 @@ CREATE TABLE `nilai` (
   `kdmapel` varchar(5) NOT NULL,
   `nilai` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `nilai`
---
-
-INSERT INTO `nilai` (`nis`, `kdmapel`, `nilai`) VALUES
-('210001', 'A-001', 87),
-('210001', 'A-002', 86),
-('210001', 'A-003', 82),
-('210001', 'A-004', 84),
-('210001', 'A-005', 80),
-('210001', 'A-006', 88),
-('210001', 'B-001', 84),
-('210001', 'B-002', 84),
-('210001', 'B-003', 87),
-('210001', 'C-001', 81),
-('210001', 'C-002', 86),
-('210001', 'C-003', 77),
-('210001', 'C-004', 79),
-('210001', 'C-005', 75);
 
 -- --------------------------------------------------------
 
@@ -140,15 +77,6 @@ CREATE TABLE `siswa` (
   `alamat` varchar(255) DEFAULT NULL,
   `jen_kel` varchar(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `siswa`
---
-
-INSERT INTO `siswa` (`nis`, `nama`, `alamat`, `jen_kel`) VALUES
-('210001', 'Fadhlan Hadaina', 'Kp. Samboja, Ds. Cikoneng, Kec. Anyer, Banten 42166.', 'L'),
-('210002', 'Budi', 'Jakarta', 'L'),
-('21003', 'Luhur', 'Ciledug', 'L');
 
 -- --------------------------------------------------------
 
@@ -169,10 +97,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userid`, `username`, `userpass`, `role`, `nis`) VALUES
-(1, 'crypto411', '041100', 'admin', NULL),
-(2, 'u210001', 'p210001', NULL, '210001'),
-(3, 'u210002', 'p2010002', NULL, '210002'),
-(4, 'u21003', 'p21003', NULL, '21003');
+(1, 'admin', 'admin', 'admin', NULL);
 
 --
 -- Indexes for dumped tables
@@ -183,18 +108,6 @@ INSERT INTO `users` (`userid`, `username`, `userpass`, `role`, `nis`) VALUES
 --
 ALTER TABLE `mapel`
   ADD PRIMARY KEY (`kdmapel`);
-
---
--- Indexes for table `mhs`
---
-ALTER TABLE `mhs`
-  ADD PRIMARY KEY (`nim`);
-
---
--- Indexes for table `mtk`
---
-ALTER TABLE `mtk`
-  ADD PRIMARY KEY (`kdmtk`);
 
 --
 -- Indexes for table `nilai`
@@ -214,7 +127,8 @@ ALTER TABLE `siswa`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userid`),
-  ADD UNIQUE `usernis` (`username`, `nis`);
+  ADD UNIQUE KEY `usernis` (`username`,`nis`),
+  ADD KEY `users_ibfk_1` (`nis`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -224,7 +138,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `userid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
