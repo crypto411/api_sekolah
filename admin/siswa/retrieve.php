@@ -17,11 +17,8 @@
         $out .= '"alamat":"'    . $rs["alamat"]     . '",';
         $out .= '"jen_kel":"'   . $rs["jen_kel"]    . '"}';
     }
-    $out = (!empty($out)) ? '{"records":['.$out.']}' : '';
-    if(empty($out))
-        http_response_code(404);
-    else
-        echo ($out);
+    $out = (!empty($out)) ? '{"records":['.$out.']}' : '{"records": []}';
+    echo ($out);
 
     $conn->close();
 ?>

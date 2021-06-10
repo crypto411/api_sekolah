@@ -16,11 +16,8 @@
         $out .= '"username":"' . $rec["username"] . '",';
         $out .= '"userpass":"' . $rec["userpass"] . '"}';
     }
-    $out = (!empty($out)) ? '{"records":['.$out.']}' : '';
-    if(empty($out))
-        http_response_code(404);
-    else
-        echo ($out);
+    $out = (!empty($out)) ? '{"records":['.$out.']}' : '{"records": []}';
+    echo ($out);
 
     $conn->close();
 ?>

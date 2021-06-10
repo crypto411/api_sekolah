@@ -15,11 +15,8 @@
         $out .= '{"kdmapel":"' . $rs["kdmapel"] . '",';
         $out .= '"namamapel":"' . $rs["namamapel"] . '"}';
     }
-    $out = (!empty($out)) ? '{"records":['.$out.']}' : '';
-    if(empty($out))
-        http_response_code(404);
-    else
-        echo ($out);
+    $out = (!empty($out)) ? '{"records":['.$out.']}' : '{"records": []}';
+    echo ($out);
 
     $conn->close();
 ?>
