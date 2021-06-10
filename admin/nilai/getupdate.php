@@ -16,7 +16,10 @@ if ($rec = $result->fetch_array()) {
     $out .= '"kdmapel":"' . $rec["kdmapel"] . '",';
     $out .= '"nilai":"' . $rec["nilai"] . '"}';
     $out = (!empty($out)) ? $out : '';
-    echo ($out);
+    if(empty($out))
+        http_response_code(404);
+    else
+        echo ($out);
 }
 else {
     if ($out != "") {$out .= ",";}

@@ -16,7 +16,10 @@
         $out .= '"namamapel":"' . $rs["namamapel"] . '"}';
     }
     $out = (!empty($out)) ? '{"records":['.$out.']}' : '';
-    echo ($out);
+    if(empty($out))
+        http_response_code(404);
+    else
+        echo ($out);
 
     $conn->close();
 ?>
